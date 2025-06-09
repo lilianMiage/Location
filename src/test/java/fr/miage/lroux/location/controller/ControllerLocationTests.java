@@ -42,10 +42,10 @@ public class ControllerLocationTests {
     public void getLocationById() throws Exception {
         mvc.perform(get("/api/location/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.idVoiture", is((int)location.getIdVoiture())))
-                .andExpect(jsonPath("$.idUser", is((int)location.getIdUser())))
-                .andExpect(jsonPath("$.idAccessCard", is((int)location.getIdAccessCard())))
-                .andExpect(jsonPath("$.idStation", is((int)location.getIdStation())));
+                .andExpect(jsonPath("$.carId", is((int)location.getCarId())))
+                .andExpect(jsonPath("$.userId", is((int)location.getUserId())))
+                .andExpect(jsonPath("$.accessCardId", is((int)location.getAccessCardId())))
+                .andExpect(jsonPath("$.stationId", is((int)location.getStationId())));
     }
 
     @Test
@@ -57,10 +57,10 @@ public class ControllerLocationTests {
                         .contentType("application/json")
                         .content(stationJson))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.idVoiture", is((int)locationObject.getIdVoiture())))
-                .andExpect(jsonPath("$.idUser", is((int)locationObject.getIdUser())))
-                .andExpect(jsonPath("$.idAccessCard", is((int)locationObject.getIdAccessCard())))
-                .andExpect(jsonPath("$.idStation", is((int)locationObject.getIdStation())));
+                .andExpect(jsonPath("$.carId", is((int)locationObject.getCarId())))
+                .andExpect(jsonPath("$.userId", is((int)locationObject.getUserId())))
+                .andExpect(jsonPath("$.accessCardId", is((int)locationObject.getAccessCardId())))
+                .andExpect(jsonPath("$.stationId", is((int)locationObject.getStationId())));
     }
 
 

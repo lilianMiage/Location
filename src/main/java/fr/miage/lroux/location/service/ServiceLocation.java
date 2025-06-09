@@ -21,6 +21,14 @@ public class ServiceLocation {
         return location;
     }
 
+    public Iterable<Location> getLocationByUserIdAndActive(Long locationId) throws Exception {
+        return repoLocation.findByUserId(locationId);
+    }
+
+    public Iterable<Location> getActiveLocationByVoiture(Long carId) {
+        return repoLocation.findByCarId(carId);
+    }
+
     public Location getLocationById(Long locationId) throws Exception {
         Optional<Location> locationOptional = repoLocation.findById(locationId);
         if (locationOptional.isEmpty()) {

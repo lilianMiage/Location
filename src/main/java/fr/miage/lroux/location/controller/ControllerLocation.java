@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/location")
+@RequestMapping("/api/location/")
 public class ControllerLocation {
 
     @Autowired
@@ -17,9 +17,18 @@ public class ControllerLocation {
         return serviceLocation.createLocation(location);
     }
 
-    @GetMapping("/{id}")
-    public Location getLocation(@PathVariable Long id) throws Exception {
+    @GetMapping("{id}")
+    public Location getLocation(@PathVariable long id) throws Exception {
         return serviceLocation.getLocationById(id);
     }
 
+    @GetMapping("active/user/{userId}")
+    public Iterable<Location> getLocationActiveByUser(@PathVariable long userId) throws Exception {
+        return serviceLocation.getLocationByUserIdAndActive(userId);
+    }
+
+    @GetMapping("active/car/{carId}")
+    public Iterable<Location> getLocationActiveByVoiture(@PathVariable long carId) throws Exception {
+        return serviceLocation.getActiveLocationByVoiture(carId);
+    }
 }

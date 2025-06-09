@@ -12,29 +12,42 @@ public class Location {
     @GeneratedValue
     private long idLocation;
 
-    private long idVoiture;
+    private long carId;
 
-    private long idUser;
+    private long userId;
 
-    private long idAccessCard;
+    private long accessCardId;
 
-    private long idStation;
+    private long stationId;
+
+    @Column(nullable = false)
+    private boolean active;
+
 
     public Location() {}
 
-    public Location(long idVoiture, long idUser, long idAccessCard, long idStation) {
-        this.idVoiture = idVoiture;
-        this.idUser = idUser;
-        this.idAccessCard = idAccessCard;
-        this.idStation = idStation;
+    public Location(long carId, long userId, long accessCardId, long stationId) {
+        this.carId = carId;
+        this.userId = userId;
+        this.accessCardId = accessCardId;
+        this.stationId = stationId;
     }
 
-    public Location(long idLocation, long idVoiture, long idUser, long idAccessCard, long idStation) {
+    public Location(long idLocation, long carId, long userId, long accessCardId, long stationId) {
         this.idLocation = idLocation;
-        this.idVoiture = idVoiture;
-        this.idUser = idUser;
-        this.idAccessCard = idAccessCard;
-        this.idStation = idStation;
+        this.carId = carId;
+        this.userId = userId;
+        this.accessCardId = accessCardId;
+        this.stationId = stationId;
+    }
+
+    public Location(long idLocation, long carId, long userId, long accessCardId, long stationId, boolean active) {
+        this.idLocation = idLocation;
+        this.carId = carId;
+        this.userId = userId;
+        this.accessCardId = accessCardId;
+        this.stationId = stationId;
+        this.active = active;
     }
 
     public long getIdLocation() {
@@ -45,35 +58,35 @@ public class Location {
         this.idLocation = idLocation;
     }
 
-    public long getIdVoiture() {
-        return idVoiture;
+    public long getCarId() {
+        return carId;
     }
 
-    public void setIdVoiture(long idVoiture) {
-        this.idVoiture = idVoiture;
+    public void setCarId(long carId) {
+        this.carId = carId;
     }
 
-    public long getIdUser() {
-        return idUser;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public long getIdAccessCard() {
-        return idAccessCard;
+    public long getAccessCardId() {
+        return accessCardId;
     }
 
-    public void setIdAccessCard(long idAccessCard) {
-        this.idAccessCard = idAccessCard;
+    public void setAccessCardId(long accessCardId) {
+        this.accessCardId = accessCardId;
     }
 
-    public long getIdStation() {
-        return idStation;
+    public long getStationId() {
+        return stationId;
     }
 
-    public void setIdStation(long idStation) {
-        this.idStation = idStation;
+    public void setStationId(long stationId) {
+        this.stationId = stationId;
     }
 }
