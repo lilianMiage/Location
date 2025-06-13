@@ -36,4 +36,11 @@ public class ServiceLocation {
         }
         return locationOptional.get();
     }
+
+    public Location updateLocation(long idLocation) throws Exception {
+        Location location = getLocationById(idLocation);
+        location.setActive(false);
+        repoLocation.save(location);
+        return location;
+    }
 }

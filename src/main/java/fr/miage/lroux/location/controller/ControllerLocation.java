@@ -31,4 +31,9 @@ public class ControllerLocation {
     public Iterable<Location> getLocationActiveByVoiture(@PathVariable long carId) throws Exception {
         return serviceLocation.getActiveLocationByVoiture(carId);
     }
+
+    @PutMapping("{id}/update")
+    Location updateLocation(@PathVariable long id) throws Exception {
+        return serviceLocation.updateLocation(id);
+    }
 }
