@@ -9,7 +9,7 @@ import lombok.*;
 public class Location {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idLocation;
 
     private long carId;
